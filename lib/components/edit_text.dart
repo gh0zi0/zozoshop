@@ -28,6 +28,7 @@ class _EditTextFiledState extends State<EditTextFiled> {
     return Padding(
       padding: const EdgeInsets.only(top: 20, right: 10, left: 10),
       child: TextFormField(
+        autocorrect: false,
         validator: widget.validator,
         controller: widget.controller,
         obscureText: widget.secure ? showPass : false,

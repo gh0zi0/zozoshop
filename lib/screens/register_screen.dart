@@ -56,8 +56,9 @@ class _RegesterScreenState extends State<RegesterScreen> {
         await store
             .collection('users')
             .doc(auth.currentUser!.uid)
-            .set({'name': name.text, 'user': true});
-        Navigator.popAndPushNamed(context, '/home');
+            .set({'name': name.text, 'user': true, 'email': email.text});
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil('/home', (route) => false);
       }
     } on FirebaseAuthException catch (e) {
       setState(() {
@@ -134,7 +135,9 @@ class _RegesterScreenState extends State<RegesterScreen> {
                       : 'Already have account? Sign In',
                   function: changeState),
               loading
-                  ? const CircularProgressIndicator()
+                  ? const CircularProgressIndicator(
+                      color: Color.fromARGB(255, 110, 213, 194),
+                    )
                   : EButton(
                       title: signIn ? 'Sign In' : 'Sign Up',
                       function: auth,

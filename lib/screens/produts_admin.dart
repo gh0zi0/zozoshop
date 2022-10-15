@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:zozoshop/components/list_tile.dart';
+import 'package:zozoshop/components/list_tile_product_admin.dart';
 
 class ProductsAdmin extends StatefulWidget {
   const ProductsAdmin({super.key});
@@ -22,12 +22,17 @@ class _ProductsAdminState extends State<ProductsAdmin> {
             child: ListView.builder(
               itemCount: productData!.length,
               itemBuilder: (context, index) {
-                return ListTileCustom(list: productData, index: index);
+                return ListTileCustomPA(
+                  list: productData,
+                  index: index,
+                );
               },
             ),
           );
         }
-        return const Center(child: CircularProgressIndicator());
+        return const Center(
+            child: CircularProgressIndicator(
+                color: Color.fromARGB(255, 110, 213, 194)));
       },
     );
   }

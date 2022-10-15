@@ -16,9 +16,10 @@ class _SplashScreenState extends State<SplashScreen> {
     auth = await FirebaseAuth.instance.currentUser?.uid ?? '';
     await Future.delayed(Duration(milliseconds: 1000));
     if (auth != '') {
-      Navigator.popAndPushNamed(context, '/home');
+      Navigator.of(context).pushNamedAndRemoveUntil('/home', (route) => false);
     } else {
-      Navigator.popAndPushNamed(context, '/register');
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil('/register', (route) => false);
     }
   }
 
