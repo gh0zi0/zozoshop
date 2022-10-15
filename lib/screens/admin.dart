@@ -50,7 +50,7 @@ class _AdminScreenState extends State<AdminScreen>
           ),
           appBar: AppBar(
             title: Text(
-              'Home',
+              'Admin',
               style: TextStyle(color: Colors.black),
             ),
             backgroundColor: Color.fromARGB(255, 110, 213, 194),
